@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random number</title>
+    <style>
+        header{
+            background-color: cadetblue;
+            border-radius: 20px;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        nav > ul{
+            text-align: center;
+        }
+        nav > ul >a:hover{
+            color: black;
+        }
+        p{
+            text-shadow: 1px 1px black;
+            text-align: center;
+        }
+        div{
+            background-color: rgba(128, 128, 128, 0.429);
+            border-radius: 20px;
+
+        }
+        #numero{
+            text-align: center;
+            background-color: cadetblue;
+            
+        }
+        #cxNumero{
+            height: 20vh;
+            width: 30vw;
+            background-color:rgba(105, 105, 105, 0.848);
+            color: white;
+            text-align: center;
+            font-size: 3em;
+        }
+
+
+        #rodaPe{
+            background-color: cadetblue;
+            color: white;
+            border-radius: 20px;
+            font-size: 2em;
+ 
+        }
+        #aleatorio{
+            background-color:rgba(105, 105, 105, 0.848) ;
+            color: white;
+            border-radius: 50%;
+            height: 5vh;
+            width: 8vw;
+        }
+        #aleatorio:hover{
+            background-color: rgba(197, 189, 189, 0.948);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RANDOM NUMBER</h1>
+        <nav>
+            <ul><a href="#">HOME</a></ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, earum deleniti repellendus excepturi dolor corporis accusantium eaque, vitae deserunt, rerum non eos totam. Fugiat qui pariatur molestiae necessitatibus, excepturi ullam?</p>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et sit totam quidem rerum? Officia, libero obcaecati, ad magni ducimus assumenda sed quidem pariatur autem temporibus distinctio quis debitis nobis inventore?
+                </p>
+            </div>
+            <div id="numero">
+                <input type="number" id="cxNumero" value="0">
+                <input type="button" id="aleatorio" value="Random" onclick="botao()">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p id="rodaPe">Site criado por Augustinho Baumgarten</p>
+    </footer>
+
+    <script src="interacao.js">
+    </script>
+</body>
+</html>
