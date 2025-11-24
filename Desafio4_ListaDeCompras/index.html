@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIST</title>
     <style>
-        body{
-            background-color: black;
-        }
         header{
             background-color: rgb(158, 43, 43);
             border-radius: 10px;
+            height: 5vh;
         }
 
         h1{
@@ -19,7 +17,7 @@
             
         }
         div{
-            background-color: rgb(101, 100, 105);
+            background-color: rgb(114, 113, 115);
             color: white;
             border-radius: 10px;
         }
@@ -28,6 +26,15 @@
         }
         div > h2{
             text-align: center;
+        }
+        #entrada{
+            text-align: center;
+
+        }
+        div > input#item{
+            height: 50px;
+            font-size: 1.5em;
+            
         }
 
     </style>
@@ -40,17 +47,23 @@
         <section>
             <div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem neque dolor est, cupiditate molestiae fugit enim maiores. Animi impedit ratione rem corrupti sit sunt pariatur consectetur fugiat. Voluptatum, praesentium.</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis adipisci quia, asperiores autem omnis eos consequuntur enim ipsum culpa eum repellendus error illum, est placeat alias pariatur sed animi voluptates!
+                </p>
             </div>
             <div>
                 <h2>- Monte sua lista de compras -</h2>
             </div>
-            <div>
-                <input type="text" id="lista">
+            <div id="entrada">
+                <input type="text" id="item" placeholder="">
+                <button id="botao" type="button">Adicionar</button>
             </div>
+            <ul id="lista"></ul>
         </section>
     </main>
     <footer>
 
     </footer>
+    <script src="interacao.js"></script>
 </body>
 </html>
