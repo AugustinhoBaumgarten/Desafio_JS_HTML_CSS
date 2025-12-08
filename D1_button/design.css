@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body{
+    background-color: blanchedalmond;
+}
+#titulo{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.76);
+    color: blanchedalmond;
+    border-radius: 20px;
+}
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.76);
+    border-radius: 20px;
+}
+
+nav > ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display:contents;
+}
+
+nav > ul > li > a{
+    color: blanchedalmond;
+    text-decoration: none;
+}
+
+h2{
+    font-size: 2em;
+    text-shadow: 2px 0.5px brown;
+}
+
+#texto1{
+    font-size: 1.2em;
+}
+
+#botao{
+    font-size: 2em;
+}
+
+#mensagem{
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.76);
+    color: blanchedalmond;
+
+}
+
+footer > p{
+    text-align: center;
+    color: brown;
+}
