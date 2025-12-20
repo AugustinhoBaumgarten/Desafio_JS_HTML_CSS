@@ -3,16 +3,34 @@
 const texto = document.getElementById('texto');
 const botao = document.getElementById('botao');
 const lista = document.getElementById('lista');
+const limpar = document.getElementById('limpar');
 
 let adcLista = [];  //onde fica a array da lista  
 
+
+limpar.onclick = () =>{
+    const ok = confirm("Tem certeza que deseja apagar tudo?");
+    if(!ok) return;
+
+    adcLista = [];
+    localStorage.removeItem("listaTarefas");
+    lista.innerHTML = "";
+}
+
+
+
 botao.onclick = () =>{
     const valorTexto = texto.value.trim();
-
     if(valorTexto === "") return;
 
-    adcLista.push(valorTexto);
+    texto.value = "";
 
+    adcLista.push({
+        texto: valorTexto,
+        feita: false
+    });
+
+    salvar();
     render();
 
 };
@@ -22,33 +40,73 @@ function render(){
     adcLista.forEach((item, index) => {
         const li = document.createElement("li");
 
-        li.innerHTML = `
-        ${item}
-        <button onclick="editar(${index})">Editar</button>
-        <button onclick = "apagar(${index})">apagar</button>`;
+        const span = document.createElement("span");
+        span.textContent = item.texto;
+        span.onclick = () => toggleFeita(index);
 
-        lista.appendChild(li);
+        if(item.feita){
+            span.classList.add("feita");
+        }
+
+        const btnEditar = document.createElement("button");
+        btnEditar.textContent = "Editar";
+        btnEditar.onclick = () => editar(index);
+
+        const btnApagar = document.createElement("button");
+            btnApagar.textContent = "Apagar";
+            btnApagar.onclick = () => apagar(index);
+        
+            li.appendChild(span);
+            li.appendChild(btnEditar);
+            li.appendChild(btnApagar);
+
+            lista.appendChild(li);
 
     });
 }
 
 function apagar(i){
     adcLista.splice(i, 1);
+    
+    salvar();
     render();
+
 }
 
 function editar(i){
-    const nova = prompt("Novo nome: ", adcLista[i]);
+    const nova = prompt("Novo nome: ", adcLista[i].texto);
     
     if(!nova || nova.trim() === "") return;
+ 
 
-
-    adcLista[i] = nova.trim();
+    adcLista[i].texto = nova.trim();
+    
+    salvar();
     render();
 }
 
+// salvar no localStorage
 
+function salvar(){
+    localStorage.setItem("listaTarefas", JSON.stringify(adcLista));
 
+}
 
+//carregar ao abrir o site
 
-// agora fazer excluir e editar item segue o moviment.js do fruit
+function carregar(){
+    const dados = localStorage.getItem("listaTarefas");
+
+    if(dados){
+        adcLista = JSON.parse(dados)
+        render();
+    }
+}
+
+function toggleFeita(i){
+    adcLista[i].feita = !adcLista[i].feita;
+    salvar();
+    render();
+}
+
+carregar();

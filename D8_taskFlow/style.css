@@ -19,3 +19,16 @@ nav a{
     font-weight: bold;
     color: brown;
 }
+
+#clear{
+    text-align: center;
+}
+#limpar{
+    color: brown;
+}
+
+.feita{
+    text-decoration: line-through;
+    opacity: 0.6;
+    cursor: pointer;
+}
