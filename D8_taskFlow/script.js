@@ -4,8 +4,29 @@ const texto = document.getElementById('texto');
 const botao = document.getElementById('botao');
 const lista = document.getElementById('lista');
 const limpar = document.getElementById('limpar');
+const status = document.getElementById('status');
+const filtroTodas = document.getElementById('filtro-todas');
+const filtroFeitas = document.getElementById('filtro-feitas');
+const filtroPendentes = document.getElementById('filtro-pendentes');
+
 
 let adcLista = [];  //onde fica a array da lista  
+let filtroAtual = "todas";
+
+filtroTodas.onclick = () => {
+    filtroAtual = "todas";
+    render();
+};
+
+filtroFeitas.onclick = () =>{
+    filtroAtual = "feitas";
+    render();
+};
+
+filtroPendentes.onclick = () =>{
+    filtroAtual = "pendentes";
+    render();
+}
 
 
 limpar.onclick = () =>{
@@ -37,7 +58,17 @@ botao.onclick = () =>{
 
 function render(){
     lista.innerHTML = "";
-    adcLista.forEach((item, index) => {
+    let listaFiltrada = adcLista;
+
+    if(filtroAtual === "feitas"){
+        listaFiltrada = adcLista.filter(item => item.feita);
+    }
+
+    if(filtroAtual === "pendentes"){
+        listaFiltrada = adcLista.filter(item => !item.feita);
+    }
+
+    listaFiltrada.forEach((item, index) => {
         const li = document.createElement("li");
 
         const span = document.createElement("span");
@@ -50,19 +81,28 @@ function render(){
 
         const btnEditar = document.createElement("button");
         btnEditar.textContent = "Editar";
+        btnEditar.classList.add("btn-editar");
         btnEditar.onclick = () => editar(index);
 
         const btnApagar = document.createElement("button");
             btnApagar.textContent = "Apagar";
+            btnApagar.classList.add("btn-apagar");
             btnApagar.onclick = () => apagar(index);
-        
+
+            const acoes = document.createElement("div");
+            acoes.classList.add("acoes");
+            acoes.appendChild(btnEditar);
+            acoes.appendChild(btnApagar);
+
+
             li.appendChild(span);
-            li.appendChild(btnEditar);
-            li.appendChild(btnApagar);
+            li.appendChild(acoes);
 
             lista.appendChild(li);
 
     });
+
+            atualizarStatus();
 }
 
 function apagar(i){
@@ -108,5 +148,26 @@ function toggleFeita(i){
     salvar();
     render();
 }
+
+function atualizarStatus(){
+    const total = adcLista.length;
+
+    const feitas = adcLista.filter(item => item.feita).length;
+
+    const pendentes = total - feitas;
+
+    status.textContent = `Total: ${total} | Feitas: ${feitas} | Pendentes ${pendentes}`;
+}
+
+texto.addEventListener("keydown", (e) =>{
+    if(e.key === "Enter"){
+        botao.click();
+    }
+});
+
+
+
+
+
 
 carregar();
