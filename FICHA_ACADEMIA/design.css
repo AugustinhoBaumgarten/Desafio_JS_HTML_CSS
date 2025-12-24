@@ -1,1 +1,96 @@
 @charset "UTF-8";
+
+h1{
+    text-align: center;
+}
+
+a{
+    font-style: none;
+}
+
+#inicio{
+    text-align: center;
+}
+
+#texto{
+    font-size: 2em;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#adicionar{
+    font-size: 2em;
+}
+
+#exercicios{
+    padding-left: 0;
+    list-style-position: inside;
+    list-style: none;
+}
+
+#exercicios li{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;}
+
+.nome-ex{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.area-dados{
+    display: flex;
+    gap: 10px;
+}
+
+.area-dados input{
+
+    flex: 1;
+    height: 56px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    
+    line-height: 56px;
+    box-sizing: border-box;
+
+    border: 1px solid #999;
+    border-radius: 6px;
+
+    appearance: none;
+    webkit-radius:6px;
+}
+
+
+.areaBotoes{
+    display: flex;
+    gap: 10px;
+}
+
+.areaBotoes button{
+    flex: 1;
+    height: 56px;
+    font-size: 16px;
+
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+    line-height: 56px;
+
+    border-radius: 6px;
+
+}
+
+
+.campo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: bold;
+}

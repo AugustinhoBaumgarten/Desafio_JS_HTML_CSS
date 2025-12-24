@@ -7,6 +7,13 @@ let indiceEdicao = null;
 
 const dadosSalvos = localStorage.getItem("exercicios");
 
+//enter aciona o adicionar
+texto.addEventListener("keydown", (event) => {
+    if(event.key === "Enter"){
+        adicionar.click();
+    }
+});
+
 if(dadosSalvos){
     listaEx = JSON.parse(dadosSalvos);
     render();
@@ -25,7 +32,9 @@ adicionar.onclick = () =>{
     }else{
         listaEx.push({
             texto: valorTexto,
-            feita: false
+            feita: false,
+            carga:"",
+            reps:""
         });
     }
 
@@ -38,24 +47,78 @@ function render(){
 
     listaEx.forEach((item, index) =>{
         const li = document.createElement("li");
-        li.innerText = item.texto;
+
+        //organizando li
+        const nomeEx = document.createElement("span");
+        nomeEx.innerText = item.texto;
+        nomeEx.className = "nome-ex"
+
+        li.appendChild(nomeEx);
+
+        //input para a carga do treino
+        const inputCarga = document.createElement("input");
+        inputCarga.type = "number";
+        inputCarga.placeholder = "Kg";
+        inputCarga.value = item.carga;
+
+        //input para o número de séries
+        const inputReps = document.createElement("input");
+        inputReps.type = "number";
+        inputReps.placeholder = "reps";
+        inputReps.value = item.reps;
+
+        //area de dados
+        const areaDados = document.createElement("div");
+        areaDados.className = "area-dados";
+
+        const campoKg = document.createElement("div");
+        campoKg.className = "campo";
+        campoKg.innerHTML = "<span>Kg</span>";
+        campoKg.appendChild(inputCarga)
+
+        const campoReps = document.createElement("div");
+        campoReps.className = "campo";
+        campoReps.innerHTML =" <span>Reps</span>"
+        campoReps.appendChild(inputReps)
+
+        areaDados.appendChild(campoKg);
+        areaDados.appendChild(campoReps);
+
+        li.appendChild(areaDados);
+
+        inputCarga.addEventListener("input", () =>{   
+            listaEx[index].carga = inputCarga.value;
+            salvar();
+        });
+
+        inputReps.addEventListener("input", () => 
+        {
+            listaEx[index].reps = inputReps.value;
+            salvar();
+        })
+
         exercicios.appendChild(li);
+
+        //div para botoes
+        const areaBotoes = document.createElement("div");
+        areaBotoes.className = "areaBotoes";
 
         if(indiceEdicao === null){ //confere
         const  btnApagar = document.createElement("button");
         btnApagar.innerText = "Apagar";
 
-        li.appendChild(btnApagar);
+        areaBotoes.appendChild(btnApagar);
 
         btnApagar.onclick = () =>{
             listaEx.splice(index, 1);
-            render()
+            salvar();
+            render();
         }
     }
 
         const btnEditar = document.createElement('button');
         btnEditar.innerText = "Editar";
-        li.appendChild(btnEditar);
+        areaBotoes.appendChild(btnEditar);
 
         btnEditar.onclick = () =>{
             texto.value = item.texto;
@@ -64,6 +127,7 @@ function render(){
             render();
         }
 
+        li.appendChild(areaBotoes);
 
     });
 
@@ -77,7 +141,6 @@ function salvar(){
 
 //design
 //feito / nao feito (ja vem como false)
-// adicionar com enter
 // adicionar ao lado a carga utilizada e numero de repetições para cada exercicio, podendo editar botao edit
 //riscar feitas e nao feitas
 //foco em mobile
