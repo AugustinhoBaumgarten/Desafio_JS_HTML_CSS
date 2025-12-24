@@ -53,7 +53,20 @@ function render(){
         nomeEx.innerText = item.texto;
         nomeEx.className = "nome-ex"
 
+        //clicar em cima para riscar
+        if(item.feita){
+            nomeEx.classList.add("feito");
+        }
+
+        nomeEx.onclick = () =>{
+            listaEx[index].feita = !listaEx[index].feita;
+
+            salvar();
+            render();
+        };
+
         li.appendChild(nomeEx);
+
 
         //input para a carga do treino
         const inputCarga = document.createElement("input");
@@ -140,7 +153,5 @@ function salvar(){
 
 
 //design
-//feito / nao feito (ja vem como false)
-// adicionar ao lado a carga utilizada e numero de repetições para cada exercicio, podendo editar botao edit
-//riscar feitas e nao feitas
+
 //foco em mobile

@@ -1,5 +1,23 @@
 @charset "UTF-8";
 
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+section{
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
 h1{
     text-align: center;
 }
@@ -9,17 +27,33 @@ a{
 }
 
 #inicio{
-    text-align: center;
+    display: flex;
+    gap: 8px;
+    padding: 0 10px ;
+    width: 100%;
+
 }
 
 #texto{
-    font-size: 2em;
+    flex: 1;
+    min-width: 0;
+    font-size: 16px;
+    padding: 10px;
     border-radius: 6px;
     box-sizing: border-box;
 }
 
 #adicionar{
-    font-size: 2em;
+    font-size: 16px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.feito{
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: green;
 }
 
 #exercicios{
@@ -38,7 +72,9 @@ a{
 .nome-ex{
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 4px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .area-dados{
@@ -52,6 +88,7 @@ a{
     height: 56px;
     text-align: center;
     font-size: 16px;
+
     padding: 0;
     margin: 0;
     
@@ -61,8 +98,9 @@ a{
     border: 1px solid #999;
     border-radius: 6px;
 
+    background: #fff;
     appearance: none;
-    webkit-radius:6px;
+    -webkit-appearance: none;
 }
 
 
