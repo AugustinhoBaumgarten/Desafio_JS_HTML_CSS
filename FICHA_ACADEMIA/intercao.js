@@ -34,6 +34,7 @@ adicionar.onclick = () =>{
             texto: valorTexto,
             feita: false,
             carga:"",
+            series:"",
             reps:""
         });
     }
@@ -74,7 +75,13 @@ function render(){
         inputCarga.placeholder = "Kg";
         inputCarga.value = item.carga;
 
-        //input para o número de séries
+        //input séries
+        const inputSeries = document.createElement("input");
+        inputSeries.type = "number";
+        inputSeries.placeholder = "séries";
+        inputSeries.value = item.series || "";
+
+        //input reps
         const inputReps = document.createElement("input");
         inputReps.type = "number";
         inputReps.placeholder = "reps";
@@ -84,18 +91,33 @@ function render(){
         const areaDados = document.createElement("div");
         areaDados.className = "area-dados";
 
+        //kg
         const campoKg = document.createElement("div");
         campoKg.className = "campo";
         campoKg.innerHTML = "<span>Kg</span>";
-        campoKg.appendChild(inputCarga)
+        campoKg.appendChild(inputCarga);
 
+        //campo séries
+        const campoSeries = document.createElement("div");
+        campoSeries.className = "campo";
+        campoSeries.innerHTML = "<span>Séries</span>";
+        campoSeries.appendChild(inputSeries);
+
+        //campo de repeticoes
         const campoReps = document.createElement("div");
         campoReps.className = "campo";
-        campoReps.innerHTML =" <span>Reps</span>"
-        campoReps.appendChild(inputReps)
+        campoReps.innerHTML = "<span>Reps</span>";
+        campoReps.appendChild(inputReps);
 
+        //container séries + reps
+        const campoSerieReps = document.createElement("div");
+        campoSerieReps.className = "campo-series-reps";
+        campoSerieReps.appendChild(campoSeries);
+        campoSerieReps.appendChild(campoReps);
+
+        //montagem
         areaDados.appendChild(campoKg);
-        areaDados.appendChild(campoReps);
+        areaDados.appendChild(campoSerieReps);
 
         li.appendChild(areaDados);
 
@@ -103,6 +125,11 @@ function render(){
             listaEx[index].carga = inputCarga.value;
             salvar();
         });
+
+        inputSeries.addEventListener("input", () => {
+            listaEx[index].series = inputSeries.value;
+            salvar();
+        })
 
         inputReps.addEventListener("input", () => 
         {
