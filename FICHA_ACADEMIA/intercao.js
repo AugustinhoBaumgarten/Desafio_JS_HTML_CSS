@@ -1,11 +1,13 @@
 const adicionar = document.getElementById('adicionar');
 const texto = document.getElementById('texto');
 const exercicios = document.getElementById('exercicios')
+const treinoAtual = document.body.dataset.treino;
+const CHAVE_STORAGE = `exercicios_${treinoAtual}`;
 
 let listaEx = [];
 let indiceEdicao = null;
 
-const dadosSalvos = localStorage.getItem("exercicios");
+const dadosSalvos = localStorage.getItem(CHAVE_STORAGE);
 
 //enter aciona o adicionar
 texto.addEventListener("keydown", (event) => {
@@ -175,7 +177,7 @@ function render(){
 
 
 function salvar(){
-    localStorage.setItem("exercicios", JSON.stringify(listaEx));
+    localStorage.setItem(CHAVE_STORAGE, JSON.stringify(listaEx));
 }
 
 

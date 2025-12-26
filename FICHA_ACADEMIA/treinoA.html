@@ -5,29 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TREINO A</title>
     <link rel="stylesheet" href="design.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body data-treino="A">
     <div id="topo"> 
-    <header>
+        <header class="topo-header">
             <h1>TREINO - A</h1>
-            <a href="index.html">HOME</a>
+            <a href="index.html" class="btn-home">HOME</a>
         </header>
-        <main>
+        <main class="topo-centro">
             <div id="navegacao">
-                <ul>
-                    <li>
-                        <p>Adicione, modifique e exclua seus exercícios.</p>
-                    </li>
-                    <li>
-                        <p>Acrescente as repetições e carga, para controle futuro:</p>
-                    </li>
-                    <li>
-                        <p>Clique em cima do exercicio para marcar como <s>FEITO</s>!</p>
-                    </li>
-                </ul>
+                <p>Adicione, modifique e exclua seus exercícios.</p>
+                <p>Acrescente as repetições e carga, para controle futuro</p>
+                <p>Clique em cima do exercicio para marcar como <s>FEITO</s>!</p>
             </div>
     </div>
             <section>
@@ -35,14 +28,16 @@
                     <input type="text" id="texto" placeholder="digite seu exercício...">
                     <button type="button" id="adicionar">adicionar</button>
                 </div>
-                <div>
-                    <ul id="exercicios"></ul>
-                </div>
-            </section>
-    </main>
+                    <div>
+                        <ul id="exercicios"></ul>
+                    </div>
+                                </section>
+                        </main>
+                
     <footer>
-
+        <p>Site desenvolvido por Augustinho.</p>
     </footer>
     <script src="intercao.js"></script>
+    
 </body>
 </html>
