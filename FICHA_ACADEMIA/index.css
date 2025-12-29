@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.hero{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.hero-overlay h1{
+    color: #fff;
+    font-family:"Momo Trust Display", sans-serif; ;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 4px 2px rgb(0, 0, 0);
+    background-color: #09090967;
+    padding: 20px;
+    border-radius: 16px;
+
+
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    max-width: 360px;
+}
+
+.box-botoes{
+    background-color: #b8bbc067;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+nav li{
+    width: 100%;
+}
+nav a{
+    font-family: "Momo Trust Display", sans-serif;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 64px;
+
+    background-color: #202426;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3 );
+
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+nav a:active{
+    transform: scale(0.96);
+    background-color: #2d3234;
+}
+
+
+
+body{
+    background-image: url(imagens/cross.jpg);    
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    
+}
+
+#paragrafos{
+    background-color:  #b8bbc067;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 16px;
+
+
+}
+
+#paragrafos p{
+    color: #fff;
+    text-shadow: 2px 2px black;
+    text-align:center;
+    font-family: "Momo Trust Display", sans-serif;
+    line-height: 1.5;
+    
+
+}
+
+
+footer{
+color:#202426 ;
+font-family: "Momo Trust Display", sans-serif;
+text-align: center;
+background-color: #BABABA;
+margin-top: 40px;
+font-size: 14px;
+}
+
+
+
+
+
+/* @media(min-width: 768px){
+    nav ul{
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 600px;
+    }
+}*/

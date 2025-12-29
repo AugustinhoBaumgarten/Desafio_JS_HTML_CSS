@@ -4,117 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha academia</title>
-    <style>
-        header h1 {
-            text-align: center;
-            padding: 0;
-            margin-top: 60px;
-            margin-bottom: 80px;
-            
-        }
-        nav ul{
-            list-style: none;
-            padding: 0;
-            margin: 20px auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-
-            max-width: 360px;
-        }
-
-        nav li{
-            width: 100%;
-        }
-        nav a{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            height: 64px;
-
-            background-color: #202426;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3 );
-
-            transition: transform 0.15s ease, background 0.15s ease;
-        }
-
-        nav a:active{
-            transform: scale(0.96);
-            background-color: #2d3234;
-        }
-
-        body{
-            background-color: #B8BBC0;
-            background-image: url(imagens/cross.jpg);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            back
-        }
-
-        #paragrafos p{
-            color: #fff;
-            margin-top: 50px;
-            text-align:center;
-            
-
-        }
-
-
-    footer{
-    color:#202426 ;
-    font-family: "Momo Trust Display", sans-serif;
-    text-align: center;
-    background-color: #BABABA;
-    margin-top: 40px;
-    font-size: 14px;
-}
-
-
-
-
-
-       /* @media(min-width: 768px){
-            nav ul{
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 600px;
-            }
-        }*/
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>FICHA DE TREINO</h1>
+    <header class="hero">
+        <div class="hero-overlay">
+            <h1>FICHA DE TREINO</h1>
+        </div>
 
     </header>
     <main>
         <section>
 
-        <nav>
-            <ul>
-                <li><a href="treinoA.html"  target="_self">Treino - A</a></li>
-                <li><a href="treinoB.html" target="_self">Treino - B</a></li>
-                <li><a href="treinoC.html" target="_self">Treino - C</a></li>
-                <li><a href="treinoD.html" target="_self">Treino - D</a></li>
-            </ul>
-        </nav>
+        <div class="box-botoes">
+            <nav>
+                <ul>
+                    <li><a href="treinoA.html"  target="_self">Treino - A</a></li>
+                    <li><a href="treinoB.html" target="_self">Treino - B</a></li>
+                    <li><a href="treinoC.html" target="_self">Treino - C</a></li>
+                    <li><a href="treinoD.html" target="_self">Treino - D</a></li>
+                </ul>
+            </nav>
+        </div>
             <div id="paragrafos">
                 <p>
-                    A proposta deste site é usa-lo ao treinar <br>
-                    marcando os exercícios que ja fez, colocar <br>
+                    A proposta deste site é usa-lo ao treinar 
+                    marcando os exercícios que ja fez, colocar 
                     a carga utilizada e as repetições.
                 </p>
+                <br>
                 <p>
-                    Assim mantendo um padrão de construção <br>
-                    e evolução nos exercícios. Maior controle.
+                    Assim mantendo um padrão de construção 
+                    e evolução nos exercícios. 
+                    
                 </p>
             
             </div>
