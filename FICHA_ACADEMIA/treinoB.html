@@ -21,17 +21,46 @@
                 <p>Acrescente as repetições e carga, para controle futuro</p>
                 <p>Clique em cima do exercicio para marcar como <s>FEITO</s>!</p>
             </div>
+        </main>
     </div>
             <section class="container">
                 <div id="inicio">
                     <input type="text" id="texto" placeholder="digite seu exercício...">
                     <button type="button" id="adicionar">adicionar</button>
                 </div>
+                <div class="tempo-box">
+                <!--timer-->
+                    <div class="tempo-item" id="timerBox">
+                        <span class="tempo-label">Timer</span>
+                        <button  class="tempo-display" id="timerDisplay">00:00</button>
+
+                        <div class="tempo-opcoes">
+                            <input type="text" id="timerInput" value="05:00">
+
+                            <button id="timerPlay">▶</button>
+                            <button id="timerReset">⏹</button>
+                        </div>
+                    </div>
+
+                    <div class="divisor"></div>
+
+                    <!--cronometro-->
+                    <div class="tempo-item" id="cronoBox">
+                        <span class="tempo-label">Cronômetro</span>
+                        <button class="tempo-display" id="cronometroDisplay">00:00</button>
+
+                        <div class="tempo-opcoes">
+                            <button id="cronoPlay">▶</button>
+                            <button id="cronoPause">⏸</button>
+                            <button id="cronoReset">⏹</button>
+                        </div>
+                    </div>
+
+                </div>
                     <div>
                         <ul id="exercicios"></ul>
                     </div>
                                 </section>
-                        </main>
                 
     <footer>
         <p>Site desenvolvido por Augustinho.</p>

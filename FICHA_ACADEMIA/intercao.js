@@ -4,6 +4,134 @@ const exercicios = document.getElementById('exercicios')
 const treinoAtual = document.body.dataset.treino;
 const CHAVE_STORAGE = `exercicios_${treinoAtual}`;
 
+const timerBox = document.getElementById('timerBox');
+const cronoBox = document.getElementById('cronoBox');
+
+const timerDisplay = document.getElementById('timerDisplay');
+const cronoDisplay = document.getElementById('cronometroDisplay');
+const timerReset = document.getElementById('timerReset');
+
+
+
+
+
+//clique no timer
+timerDisplay.addEventListener("click", () =>{
+    timerBox.classList.toggle("ativo");
+    cronoBox.classList.remove("ativo");
+});
+
+//clique no cronometro
+cronoDisplay.addEventListener("click", () =>{
+    cronoBox.classList.toggle("ativo");
+    timerBox.classList.remove("ativo");
+})
+
+const timerInput = document.getElementById('timerInput');
+
+const timerPlay = document.getElementById('timerPlay');
+
+let timerInterval = null;
+let tempoRestante = 0;
+
+//converter mm:ss
+
+function converterParaSegundos(tempo){
+    const partes = tempo.split(":");
+    const minutos = parseInt(partes[0]) || 0;
+    const segundos = parseInt(partes[1]) || 0;
+    return (minutos * 60) + segundos;
+}
+
+//converte segundos para mm:Ss
+function formatarTempo(segundos){
+    const min = String(Math.floor(segundos/60)).padStart(2, "0");
+    const sec = String(segundos % 60).padStart(2, "0");
+    return `${min}:${sec}`;
+}
+
+function formatarInputTimer(valor){
+    valor = valor.replace(/\D/g, "");
+    if(valor.length <= 2) return valor;
+    const min = valor.slice(0, valor.length - 2);
+    const sec = valor.slice(-2);
+    return `${min}:${sec}`;
+}
+
+timerInput.addEventListener("input", (e) => {
+    const valorAtual = e.target.value;
+    e.target.value = formatarInputTimer(valorAtual);
+});
+
+//play click
+
+timerReset.addEventListener("click", () =>{
+    clearInterval(timerInterval);
+    timerInterval = 0;
+    timerDisplay.textContent = "00:00";
+})
+
+timerPlay.addEventListener("click", () => {
+    if(timerInterval) return;
+
+    timerInput.value = formatarInputTimer(timerInput.value);
+    tempoRestante = converterParaSegundos(timerInput.value);
+
+    if(tempoRestante <= 0) return;
+
+    timerBox.classList.remove("ativo");
+
+    timerDisplay.textContent = formatarTempo(tempoRestante);
+
+    timerInterval = setInterval (() => {
+        tempoRestante--;
+        timerDisplay.textContent = formatarTempo(tempoRestante);
+
+        if(tempoRestante <= 0){
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+    }, 1000);
+});
+
+
+const cronoPlay = document.getElementById('cronoPlay');
+const cronoPause = document.getElementById('cronoPause');
+const cronoReset = document.getElementById('cronoReset');
+
+let cronoInterval = null;
+let tempoCrono = 0;
+
+function atualizarCrono(){
+    cronoDisplay.textContent = formatarTempo(tempoCrono);
+}
+
+cronoPlay.addEventListener("click", () => {
+    if(cronoInterval) return;
+
+    cronoBox.classList.remove("ativo");
+
+    cronoInterval = setInterval(() => {
+        tempoCrono++;
+        atualizarCrono();
+    }, 1000);
+});
+
+cronoPause.addEventListener("click", () => {
+    clearInterval(cronoInterval);
+    cronoInterval = null;
+    cronoBox.classList.remove("ativo");
+});
+
+cronoReset.addEventListener("click", () =>{
+    clearInterval(cronoInterval);
+    cronoInterval = null;
+    tempoCrono = 0;
+    atualizarCrono();
+    cronoBox.classList.remove("ativo");
+})
+
+
 let listaEx = [];
 let indiceEdicao = null;
 
