@@ -264,6 +264,7 @@ body{
     background-color:rgba(121, 211, 85, 0.329);
     border-radius: 50%;
     margin-left: 20px;
+    padding: 8px;
 }
 
 #exercicios{
@@ -277,7 +278,9 @@ body{
     grid-template-columns: 1fr;
     gap: 8px;
     padding: 10px;
-    border-bottom: 1px solid #ddd;}
+    border-bottom: 1px solid #ddd;
+    cursor: default;
+}
 
 
 .nome-ex{
@@ -287,13 +290,14 @@ body{
     text-transform: uppercase;
     cursor: pointer;
     font-family: "Momo Trust Display", sans-serif;
-   border-radius: 6px;
-   color: #fff;
-   text-shadow: 0 0 4px rgba(121, 211, 85, 0.6),
-   0 0 10px rgba(121, 211, 85, 0.4);
-   letter-spacing: 3px;
-   display: inline-block;
-   padding: 6px 12px;
+    border-radius: 6px;
+    color: #fff;
+    text-shadow: 0 0 4px rgba(121, 211, 85, 0.6),
+    0 0 10px rgba(121, 211, 85, 0.4);
+    letter-spacing: 3px;
+    display: inline-block;
+    padding: 6px 12px;
+    width: fit-content;
 
 }
 
