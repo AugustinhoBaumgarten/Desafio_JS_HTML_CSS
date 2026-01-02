@@ -217,6 +217,23 @@ function render(){
         inputReps.placeholder = "reps";
         inputReps.value = item.reps;
 
+        inputCarga.classList.add("input-kg");
+        inputSeries.classList.add("input-series");
+        inputReps.classList.add("inputReps");
+
+        //melhora teclado no celular
+
+        inputCarga.setAttribute("inputmode", "numeric");
+        inputSeries.setAttribute("inputmode", "numeric");
+        inputReps.setAttribute("inputmode", "numeric");
+
+        inputCarga.setAttribute("enterkeyhint", "next");
+        inputSeries.setAttribute("enterkeyhint", "next");
+        inputReps.setAttribute("enterkeyhint", "done");
+
+
+
+
         //area de dados
         const areaDados = document.createElement("div");
         areaDados.className = "area-dados";
@@ -259,13 +276,44 @@ function render(){
         inputSeries.addEventListener("input", () => {
             listaEx[index].series = inputSeries.value;
             salvar();
-        })
+        });
 
         inputReps.addEventListener("input", () => 
         {
             listaEx[index].reps = inputReps.value;
             salvar();
-        })
+        });
+
+        //KG SERIES
+
+        inputCarga.addEventListener("keydown", (e) => {
+            if(e.key === "Enter") {
+                e.preventDefault();
+                inputSeries.focus();
+            };
+
+        });
+
+
+        //series - reps
+
+        inputSeries.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                inputReps.focus();
+            }
+        });
+
+        //reps - fechar teclado
+
+        inputReps.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                inputReps.blur(); //fecha o teclado do celular
+            }
+        });
+
+
 
         exercicios.appendChild(li);
 
