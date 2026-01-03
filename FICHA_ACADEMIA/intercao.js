@@ -104,7 +104,7 @@ let tempoCrono = 0;
 
 function atualizarCrono(){
     cronoDisplay.textContent = formatarTempo(tempoCrono);
-}
+};
 
 cronoPlay.addEventListener("click", () => {
     if(cronoInterval) return;
@@ -129,7 +129,7 @@ cronoReset.addEventListener("click", () =>{
     tempoCrono = 0;
     atualizarCrono();
     cronoBox.classList.remove("ativo");
-})
+});
 
 
 let listaEx = [];
@@ -147,7 +147,7 @@ texto.addEventListener("keydown", (event) => {
 if(dadosSalvos){
     listaEx = JSON.parse(dadosSalvos);
     render();
-}
+};
 
 adicionar.onclick = () =>{
     const valorTexto = texto.value.trim();
@@ -165,13 +165,14 @@ adicionar.onclick = () =>{
             feita: false,
             carga:"",
             series:"",
-            reps:""
+            reps:"",
+            dificuldade:"dificuldade"// padrao
         });
-    }
+    };
 
     salvar()
     render();
-}
+};
 
 function render(){
     exercicios.innerHTML = "";
@@ -187,7 +188,7 @@ function render(){
         //clicar em cima para riscar
         if(item.feita){
             nomeEx.classList.add("feito");
-        }
+        };
 
         nomeEx.onclick = () =>{
             listaEx[index].feita = !listaEx[index].feita;
@@ -197,6 +198,44 @@ function render(){
         };
 
         li.appendChild(nomeEx);
+
+
+        //botao dificuldade 
+        const btnDificuldade = document.createElement("button");
+        btnDificuldade.className = "btn-dificuldade";
+
+        btnDificuldade.innerText = "dificuldade";
+
+        if(item.dificuldade === "facil"){
+            btnDificuldade.classList.add("facil");
+            btnDificuldade.innerText = "fácil";
+        };
+
+        if(item.dificuldade === "medio"){
+            btnDificuldade.classList.add("medio");
+            btnDificuldade.innerText = "médio";
+        };
+
+        if(item.dificuldade === "dificil"){
+            btnDificuldade.classList.add("dificil");
+            btnDificuldade.innerText = "difícil";
+        };
+        
+
+        li.appendChild(btnDificuldade);
+
+
+        btnDificuldade.onclick = () =>{
+            const atual = item.dificuldade;
+
+            if(atual === "dificuldade") listaEx[index].dificuldade = "facil";
+            else if(atual === "facil") listaEx[index].dificuldade = "medio";
+            else if(atual === "medio") listaEx[index].dificuldade = "dificil";
+            else listaEx[index].dificuldade = "facil";
+
+            salvar();
+            render();
+        };
 
 
         //input para a carga do treino
@@ -230,8 +269,6 @@ function render(){
         inputCarga.setAttribute("enterkeyhint", "next");
         inputSeries.setAttribute("enterkeyhint", "next");
         inputReps.setAttribute("enterkeyhint", "done");
-
-
 
 
         //area de dados
