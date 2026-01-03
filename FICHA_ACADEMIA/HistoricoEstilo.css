@@ -17,18 +17,40 @@ body {
 }
 
 h1 {
+    
     font-size: 30px;
     text-transform: uppercase;
     color: #ffffff;
     text-shadow:
-    0 0 6px rgba(121, 211, 85, 0.6),
-    0 2px 6px rgba(0, 0, 0, 0.8);
+    0 1px 6px rgba(121, 211, 85, 0.6),
+    1px 2px 6px rgba(0, 0, 0, 0.8);
     margin: 0;
     letter-spacing: 2px;
     text-align: center;
     font-family: "Momo Trust Display", sans-serif;
     font-weight: 700;
 ;
+}
+
+#home-center{
+    text-align: center;
+    margin: 30px;
+    
+}
+
+#home-center a {
+    color: #fff;
+    font-family:"Momo Trust Display", sans-serif; ;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 4px 2px rgb(0, 0, 0);
+    background-color: #333;
+    padding: 20px;
+    border-radius: 16px;
+    text-decoration: none;
+
+
 }
 
 /* Lista de datas / botões */

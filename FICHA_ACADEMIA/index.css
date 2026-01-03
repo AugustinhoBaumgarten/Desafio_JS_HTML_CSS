@@ -120,6 +120,31 @@ body{
 
 }
 
+#historico{
+    
+    width: 200px;
+    height: 60px;
+    font-size: 16px;
+    font-family:"Momo Trust Display", sans-serif; ;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 2px solid #444;
+    background-color: rgba(255, 255, 255, 0.297);
+    color: #ffffff;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+    display: block;
+    margin: 60px auto 0 auto;
+    text-shadow: 2px 2px black;
+
+
+}
+
+a{
+    text-decoration: none;
+}
+
 
 footer{
 color:#202426 ;

@@ -432,6 +432,31 @@ footer{
 }
 
 
+#salvarTreinoDia{
+    
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-family:"Momo Trust Display", sans-serif; ;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+    display: block;
+    margin: 60px auto 0 auto;
+
+
+}
+
+#salvarTreinoDia:hover{
+    color: black;
+    background-color: white;
+}
+
 
 /*CONFIGURAÇÃO PARA TABLET----------------------------*/
 
@@ -643,6 +668,8 @@ width: 100%;
 }
 
 }
+
+
 
 
 
