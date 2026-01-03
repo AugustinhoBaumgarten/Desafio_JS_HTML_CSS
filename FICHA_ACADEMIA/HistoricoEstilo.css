@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background-color: #121212a8; /* cinza escuro quase preto */
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow:
+    0 0 6px rgba(121, 211, 85, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 700;
+;
+}
+
+/* Lista de datas / botões */
+#listaDatas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto 30px auto;
+}
+
+#listaDatas button.botao-data {
+    padding: 10px 15px;
+    border: none;
+    background-color: #333; /* cinza escuro */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Momo Trust Display", sans-serif;
+
+}
+
+#listaDatas button.botao-data:hover {
+    background-color: #555;
+}
+
+/* Área de detalhes do treino */
+#detalhesTreino {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #1e1e1e; /* tom de cinza parecido com as fichas */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+
+    
+}
+
+#detalhesTreino h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
+    font-family: "Momo Trust Display", sans-serif;
+
+}
+
+/* Cada exercício */
+.exercicio {
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #2a2a2a; /* fundo cinza mais escuro */
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: "Momo Trust Display", sans-serif;
+
+    
+}
+
+.exercicio:hover {
+    background-color: #333;
+    transform: scale(1.02);
+}
+
+.exercicio strong {
+    color: #fff;
+    font-size: 16px;
+}
+
+.exercicio span, .exercicio br {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #detalhesTreino {
+        padding: 15px;
+    }
+
+    #listaDatas {
+        max-width: 90%;
+    }
+}

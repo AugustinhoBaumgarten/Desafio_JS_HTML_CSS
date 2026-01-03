@@ -393,6 +393,34 @@ function salvar(){
     localStorage.setItem(CHAVE_STORAGE, JSON.stringify(listaEx));
 }
 
+const btnSalvarTreino = document.getElementById("salvarTreinoDia");
+
+btnSalvarTreino.addEventListener("click", () =>{
+    const hoje = new Date();
+    const dataFormatada = hoje.toLocaleDateString("pt-BR");
+
+    const historico = JSON.parse(localStorage.getItem("historico_treinos"))||{}
+
+    if(historico[dataFormatada]) {
+        const confirmar = confirm(
+            "ja existe um treino salvo hoje. Deseja sobrescrever?"
+        );
+
+        if (!confirmar){
+            return; //para tudo se clicar em cancelar
+        }
+    }
+
+    //salva / sobrescreve
+    historico[dataFormatada] = {
+        treino: treinoAtual,
+        exercicios: listaEx
+    };
+
+    localStorage.setItem("historico_treinos", JSON.stringify(historico));
+
+    alert("Treino salvo com sucesso!");
+});
 
 //design
 
