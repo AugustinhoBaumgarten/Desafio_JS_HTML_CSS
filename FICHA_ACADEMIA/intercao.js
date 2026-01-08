@@ -67,7 +67,7 @@ timerInput.addEventListener("input", (e) => {
 
 timerReset.addEventListener("click", () =>{
     clearInterval(timerInterval);
-    timerInterval = 0;
+    timerInterval = null;
     timerDisplay.textContent = "00:00";
 })
 
