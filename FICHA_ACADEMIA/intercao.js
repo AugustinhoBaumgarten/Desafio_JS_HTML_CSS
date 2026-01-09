@@ -432,6 +432,7 @@ const exerciciosPorGrupo = {
         "Agachamento sumô",
         "Agachamento hack",
         "Agachamento no smith",
+        "Abdução polia",
         "Leg press 45°",
         "Leg press horizontal",
         "Cadeira extensora",
@@ -439,6 +440,7 @@ const exerciciosPorGrupo = {
         "Mesa flexora",
         "Flexora em pé",
         "Flexora sentada",
+        "Flexão de joelhos",
         "Stiff",
         "Levantamento terra",
         "Terra romeno",
@@ -457,7 +459,8 @@ const exerciciosPorGrupo = {
         "Panturrilha em pé",
         "Panturrilha sentado",
         "Panturrilha no leg press",
-        "Panturrilha no smith"
+        "Panturrilha no smith",
+        "Wall sit"
     ],
 
     Peito: [
