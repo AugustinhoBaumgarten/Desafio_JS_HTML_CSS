@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TREINO D</title>
+    <title>TREINO E</title>
     <link rel="stylesheet" href="design.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
 </head>
+
 <body data-treino="E">
     <div id="topo"> 
         <header class="topo-header">
@@ -18,16 +19,20 @@
         <main class="topo-centro">
             <div id="navegacao">
                 <p>Adicione, modifique e exclua seus exercícios.</p>
-                <p>Acrescente as repetições, séries e carga, para controle futuro</p>
+                <p>Acrescente as repetições, séries e carga, para controle futuro.</p>
                 <p>Clique em cima do exercicio para marcar como <strong style="color:rgb(92, 189, 81) ;">FEITO</strong>!</p>
             </div>
         </main>
     </div>
             <section class="container">
-                <div id="inicio">
-                    <input type="text" id="texto" placeholder="digite seu exercício...">
+                <button id="btnEscolherExercicio">
+                    ESCOLHER EXERCÍCIO
+                </button>
+                <div id="inicio" class="modo-manual">
+                    <input type="text" id="texto" placeholder="Caso não encontre seu exercício, digite aqui...">
                     <button type="button" id="adicionar">adicionar</button>
                 </div>
+
                 <div class="tempo-box">
                 <!--timer-->
                     <div class="tempo-item" id="timerBox">
@@ -57,21 +62,20 @@
                     </div>
 
                 </div>
-
-                </div>
                     <div>
                         <ul id="exercicios"></ul>
                     </div>
-                    
-                    <button id="salvarTreinoDia">Salvar
+                    <button                     id="salvarTreinoDia">Salvar
+
+                    </button>
+            </section>
                         
-                    </button>                                  
-                
-                </section>
                 
     <footer>
         <p>Site desenvolvido por Augustinho.</p>
     </footer>
+    
     <script src="intercao.js"></script>
+    
 </body>
 </html>

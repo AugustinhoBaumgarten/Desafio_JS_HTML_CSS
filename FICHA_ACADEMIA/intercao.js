@@ -422,6 +422,223 @@ btnSalvarTreino.addEventListener("click", () =>{
     alert("Treino salvo com sucesso!");
 });
 
+
+//EXERCICIOS DO BOTAO DE ESCOLHA
+const exerciciosPorGrupo = {
+
+    Pernas: [
+        "Agachamento livre",
+        "Agachamento frontal",
+        "Agachamento sumô",
+        "Agachamento hack",
+        "Agachamento no smith",
+        "Leg press 45°",
+        "Leg press horizontal",
+        "Cadeira extensora",
+        "Extensora unilateral",
+        "Mesa flexora",
+        "Flexora em pé",
+        "Flexora sentada",
+        "Stiff",
+        "Levantamento terra",
+        "Terra romeno",
+        "Elevação pélvica",
+        "Elevação pélvica no smith",
+        "Coice no cabo",
+        "Coice com caneleira",
+        "Afundo",
+        "Afundo no smith",
+        "Passada",
+        "Passada andando",
+        "Avanço",
+        "Step-up",
+        "Abdução de quadril",
+        "Adução de quadril",
+        "Panturrilha em pé",
+        "Panturrilha sentado",
+        "Panturrilha no leg press",
+        "Panturrilha no smith"
+    ],
+
+    Peito: [
+        "Supino reto",
+        "Supino inclinado",
+        "Supino declinado",
+        "Supino com halteres",
+        "Supino no smith",
+        "Crucifixo reto",
+        "Crucifixo inclinado",
+        "Crucifixo declinado",
+        "Crucifixo no cabo",
+        "Crossover alto",
+        "Crossover médio",
+        "Crossover baixo",
+        "Peck deck",
+        "Flexão de braços",
+        "Flexão inclinada",
+        "Pullover",
+        "Pullover com halter"
+    ],
+
+    Costas: [
+        "Puxada frente aberta",
+        "Puxada frente neutra",
+        "Puxada frente supinada",
+        "Puxada unilateral",
+        "Pulldown",
+        "Barra fixa",
+        "Barra fixa assistida",
+        "Remada curvada",
+        "Remada curvada supinada",
+        "Remada unilateral com halter",
+        "Remada baixa",
+        "Remada alta",
+        "Remada cavalinho",
+        "Remada no smith",
+        "Pullover no cabo",
+        "Levantamento terra"
+    ],
+
+    Bíceps: [
+        "Rosca direta",
+        "Rosca direta com barra W",
+        "Rosca alternada",
+        "Rosca alternada sentada",
+        "Rosca martelo",
+        "Rosca martelo cruzada",
+        "Rosca concentrada",
+        "Rosca scott",
+        "Rosca scott no banco",
+        "Rosca no cabo",
+        "Rosca 21",
+        "Rosca inversa"
+    ],
+
+    Tríceps: [
+        "Tríceps testa",
+        "Tríceps testa com halteres",
+        "Tríceps corda",
+        "Tríceps pulley",
+        "Tríceps pulley inverso",
+        "Tríceps francês",
+        "Tríceps francês unilateral",
+        "Tríceps banco",
+        "Mergulho",
+        "Tríceps coice",
+        "Extensão de tríceps unilateral no cabo"
+    ],
+
+    Ombros: [
+        "Desenvolvimento com barra",
+        "Desenvolvimento com halteres",
+        "Desenvolvimento no smith",
+        "Desenvolvimento arnold",
+        "Elevação lateral",
+        "Elevação lateral sentada",
+        "Elevação lateral no cabo",
+        "Elevação frontal",
+        "Elevação frontal com halter",
+        "Elevação frontal no cabo",
+        "Crucifixo invertido",
+        "Crucifixo invertido no cabo",
+        "Face pull",
+        "Remada alta"
+    ],
+
+    Abdômen: [
+        "Abdominal reto",
+        "Abdominal infra",
+        "Abdominal oblíquo",
+        "Abdominal supra",
+        "Prancha",
+        "Prancha lateral",
+        "Elevação de pernas",
+        "Elevação de pernas na barra",
+        "Abdominal na máquina",
+        "Ab wheel",
+        "Crunch",
+        "Crunch no cabo",
+        "Tesoura",
+        "V-up"
+    ],
+
+    Cardio: [
+        "Esteira",
+        "Bicicleta",
+        "Bicicleta ergométrica",
+        "Escada",
+        "Elíptico",
+        "Pular corda",
+        "Corrida",
+        "Caminhada",
+        "HIIT"
+    ]
+};
+
+
+
+const btnEscolher = document.getElementById("btnEscolherExercicio");
+
+btnEscolher.addEventListener("click", () => {
+    abrirModalMembros();
+});
+
+function abrirModalMembros(){
+    const modal = document.createElement("div");
+    modal.className = "modal-exercicio";
+
+    const conteudo = document.createElement("div");
+    conteudo.className = "modal-conteudo";
+
+    conteudo.innerHTML = "<h2>MEMBROS</h2>";
+
+    Object.keys(exerciciosPorGrupo).forEach(grupo => {
+        const btn = document.createElement("button");
+        btn.innerText = grupo;
+
+        btn.onclick = () =>abrirListaExercicios(grupo, conteudo);
+        conteudo.appendChild(btn);
+
+    });
+
+    modal.appendChild(conteudo);
+    document.body.appendChild(modal);
+
+    modal.onclick = (e) =>{
+        if(e.target === modal){
+            modal.remove();
+        }
+    };
+}
+
+function abrirListaExercicios(grupo, container){
+    container.innerHTML = `<h2>${grupo}</h2>`;
+
+    exerciciosPorGrupo[grupo].forEach(exercicio => {
+        const btn = document.createElement("button");
+        btn.innerText = exercicio;
+
+        btn.onclick = () => {
+            listaEx.push({
+                texto: exercicio,
+                feita:false,
+                carga: "",
+                series:"",
+                reps:"",
+                dificuldade: "dificuldade"
+            });
+
+            salvar();
+            render();
+            document.querySelector(".modal-exercicio").remove();
+        };
+
+        container.appendChild(btn);
+
+    });
+}
+
+
 //design
 
 //foco em mobile
