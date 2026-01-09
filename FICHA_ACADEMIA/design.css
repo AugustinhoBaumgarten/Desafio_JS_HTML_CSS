@@ -270,6 +270,11 @@ body{
     border: 1px solid #ccc;
 }
 
+#texto::placeholder{
+    font-size: 10px;
+    white-space: nowrap;
+}
+
 #adicionar{
     font-size: 16px;
     padding: 10px 14px;
