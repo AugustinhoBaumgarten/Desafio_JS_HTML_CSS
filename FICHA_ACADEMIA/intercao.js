@@ -572,7 +572,35 @@ const exerciciosPorGrupo = {
         "Corrida",
         "Caminhada",
         "HIIT"
-    ]
+    ],
+
+    Core: [
+    "Prancha",
+    "Prancha frontal",
+    "Prancha lateral",
+    "Prancha com elevação de braço",
+    "Prancha com elevação de perna",
+    "Prancha com toque no ombro",
+    "Dead bug",
+    "Dead bug alternado",
+    "Dead bug com halter",
+    "Bird-dog",
+    "Bird-dog alternado",
+    "Bird-dog com pausa",
+    "Hollow body hold",
+    "Hollow rock",
+    "Pallof press",
+    "Pallof press unilateral",
+    "Farmer walk",
+    "Farmer walk unilateral",
+    "Suitcase carry",
+    "Good morning",
+    "Extensão lombar",
+    "Extensão lombar no banco",
+    "Superman",
+    "Superman alternado"
+]
+
 };
 
 
