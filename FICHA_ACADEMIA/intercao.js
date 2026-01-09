@@ -670,6 +670,7 @@ function abrirListaExercicios(grupo, container){
 }
 
 
+
 //design
 
 //foco em mobile
